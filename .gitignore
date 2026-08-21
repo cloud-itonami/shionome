@@ -6,3 +6,5 @@ cells/**/__pycache__/
 data/shionome.datoms.kotoba.edn
 
 .cpcache/
+# top-level analyzer output (methods/out/ was already ignored; this is the sibling)
+out/
