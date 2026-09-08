@@ -18,7 +18,7 @@
   write→read (the reader's JSON-faithful unescape closes the DAG). SHA-256 via
   java.security.MessageDigest; file I/O via slurp/spit. Deterministic (caller supplies tx_id +
   as-of; no wall clock)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [shionome.methods.edn :as sedn]
             #?(:clj [clojure.java.io :as io]))
   #?(:clj (:import [java.security MessageDigest])))

@@ -17,7 +17,7 @@
   newline/tab parses identically in cljc and Python (else the commit-DAG CID diverges).
 
   Stdlib only (regex tokenizer); file I/O at the #?(:clj) edge."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── tokenizer (mirror of the Python _TOK regex) ───────────────────────────
 ;; Matches: whitespace/commas | ; comment | one of [ ] { } | "string" | bare atom.

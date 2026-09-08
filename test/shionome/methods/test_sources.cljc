@@ -2,7 +2,7 @@
   "Cross-language oracle tests for the 潮目 public-source registry seed integrity.
   1:1 port of src/shionome/methods/test_sources.cljc. ADR-2606072200. Reads wire/registry/sources.seed.json."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [cheshire.core :as json]))
 
 (def reg-path "wire/registry/sources.seed.json")
@@ -25,8 +25,8 @@
 
 (deftest no-commercial-terminal-source
   (let [r (reg)
-        comment (str/lower-case (str (get r "_comment" "")))
-        blob (str/replace (str/lower-case (json/generate-string r)) comment "")]
+        comment (str/lower (str (get r "_comment" "")))
+        blob (str/replace (str/lower (json/generate-string r)) comment "")]
     (doseq [d DENY]
       (is (not (str/includes? blob d)) (str "prohibited terminal " d)))))
 

@@ -7,7 +7,7 @@
   Datom log, append-only + content-addressed, with NO live external I/O. Runs over the
   committed seed via the already-ported weave + social + kotoba + edn."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [shionome.methods.autorun :as autorun]
             [shionome.methods.kotoba :as kotoba]))
 

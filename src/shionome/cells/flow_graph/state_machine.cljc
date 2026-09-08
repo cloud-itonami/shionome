@@ -2,13 +2,13 @@
   "Phase state machine for the 潮目 shionome flow_graph cell.
   1:1 port of src/shionome/cells/flow_graph/state_machine.cljc (ADR-2606072200). Indexes screened flows into
   per-bucket net inflow/outflow totals (capital-movement kinds only). Self-contained."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def capital-movement-kinds #{"rotation" "fund-inflow" "fund-outflow" "fx-flow"})
 
 (def state-defaults {"phase" "init" "flows" [] "net" {}})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
-(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 (defn- pyround4 [x] (/ (Math/round (* (double x) 10000.0)) 10000.0))
 
 (defn transition-to-indexed [state]

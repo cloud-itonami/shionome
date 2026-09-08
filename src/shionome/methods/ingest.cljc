@@ -11,7 +11,7 @@
   Live ingest is G8-gated (operator attestation + SHIONOME_ALLOW_LIVE=1); the gate value is
   injectable (defaults to the env var) so it is testable without env mutation. Depends on the
   already-ported same-actor registry (sourcing-for) + weave (validate-*). stdlib only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [shionome.methods.registry :as registry]
             [shionome.methods.weave :as weave]))
 

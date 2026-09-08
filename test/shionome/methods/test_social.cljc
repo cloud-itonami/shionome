@@ -7,7 +7,7 @@
   server-held-key false), the same G2 no-trade body scan (English + Japanese
   tokens refused, the disclaimer exempt), the same G3 / Rider source guards, and
   the G8 build-live refusal."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing]]
             [shionome.methods.social :as social]))
 
 (def SRC ["https://fred.stlouisfed.org/" "https://www.ici.org/research"])
@@ -25,18 +25,18 @@
     (is (= false (get p ":post/server-held-key")))))
 
 (deftest netflow-post-body-has-disclaimer
-  (is (clojure.string/includes? (get (social/draft-netflow-post NET SRC) ":post/body")
+  (is (kotoba.lang.text/includes? (get (social/draft-netflow-post NET SRC) ":post/body")
                                 "トレードはしない")))
 
 (deftest rotation-post-ok
   (let [p (social/draft-rotation-post ROT SRC)]
-    (is (clojure.string/includes? (get p ":post/body") "US Treasuries"))
+    (is (kotoba.lang.text/includes? (get p ":post/body") "US Treasuries"))
     (is (= ":dry-run" (get p ":post/status")))))
 
 (deftest regime-post-states-descriptor
   (let [p (social/draft-regime-post REGIME SRC)]
-    (is (clojure.string/includes? (get p ":post/body") "risk-on"))
-    (is (clojure.string/includes? (get p ":post/body") "助言ではありません"))))
+    (is (kotoba.lang.text/includes? (get p ":post/body") "risk-on"))
+    (is (kotoba.lang.text/includes? (get p ":post/body") "助言ではありません"))))
 
 (deftest post-requires-two-sources-g3
   (is (thrown-with-msg? #?(:clj clojure.lang.ExceptionInfo :cljs js/Error) #"G3"

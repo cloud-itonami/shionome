@@ -18,7 +18,7 @@
   sibling actors are read as DATA (fail-open EDN ledgers), never imported as code. Depends
   only on the same-actor edn reader; weave's `_kw` normalizer is replicated locally (behaviour,
   not the private symbol). stdlib only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [shionome.methods.edn :as sedn]
             #?(:clj [clojure.java.io :as io])))
 
@@ -30,7 +30,7 @@
   [v]
   (when (and v (not= "" v))
     (let [s (-> (str v) (str/replace #"^:+" ""))]
-      (-> (last (str/split s #"/" -1)) (str/lower-case)))))
+      (-> (last (str/split s #"/" -1)) (str/lower)))))
 
 ;; per-layer grounding ROADMAP — the honest map of what can / cannot be entity-grounded.
 (def LAYER-GROUNDING

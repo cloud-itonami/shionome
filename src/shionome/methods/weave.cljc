@@ -29,7 +29,7 @@
   sorted, never CPython-set-order-dependent). Plain ::order insertion-tracking suffices — no
   siphash13/setobject port needed. The ::order metadata + stable sort-by ties the Python dict
   iteration order byte-for-byte for the `shares`/`by_bucket`/`by_payer` rankings + map keys."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.set]
             #?(:clj [shionome.methods.edn :as sedn])))
 
@@ -73,14 +73,14 @@
 (defn source-denied
   "Return the first prohibited commercial market-data term found in any source, or '' if clean."
   [sources]
-  (let [blob (str/lower-case (str/join " " (map str (or sources []))))]
+  (let [blob (str/lower (str/join " " (map str (or sources []))))]
     (or (some (fn [d] (when (str/includes? blob d) d)) SOURCE-DENY) "")))
 
 (defn trade-token-in
   "Return the first no-trade/advisory token found in `text`, or '' if clean. The core
   トレードはしない guard — used on every flow/bucket kind AND on every social-post body."
   [text]
-  (let [blob (str/lower-case (str (or text "")))]
+  (let [blob (str/lower (str (or text "")))]
     (or (some (fn [t] (when (str/includes? blob t) t)) TRADE-TOKENS) "")))
 
 (defn- in-vec?
@@ -92,7 +92,7 @@
   "Normalize an edn keyword/string to a bare lowercase token (':flow/kind' → 'kind')."
   [v]
   (let [s (-> (str (or v "")) (str/replace #"^:+" ""))]
-    (-> (last (str/split s #"/" -1)) (str/lower-case))))
+    (-> (last (str/split s #"/" -1)) (str/lower))))
 
 (defn- err [msg] (throw (ex-info msg {})))
 

@@ -7,7 +7,7 @@
   all three and asserts they AGREE; adding a trade-bearing flow kind / private bucket scope /
   per-bucket rating / :published post status in ONE place fails here."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [shionome.methods.edn :as edn]
             [shionome.methods.weave :as weave]))
 

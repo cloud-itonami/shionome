@@ -4,7 +4,7 @@
   including the トレードはしない trade-token-refusal gate, plus a byte/numeric-parity check on the
   seed concentration output."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.set]
             [shionome.methods.weave :as w]
             #?(:clj [shionome.methods.edn :as e])))

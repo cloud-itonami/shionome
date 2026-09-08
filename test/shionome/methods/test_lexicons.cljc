@@ -2,7 +2,7 @@
   "Cross-language oracle tests for 潮目 lexicon well-formedness.
   1:1 port of src/shionome/methods/test_lexicons.cljc. ADR-2606072200. Reads data/lex/*.edn via the shared reader."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [shionome.methods.edn :as edn]))
 
 (def lex-dir "data/lex")

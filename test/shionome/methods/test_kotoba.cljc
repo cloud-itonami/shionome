@@ -9,7 +9,7 @@
   JSON-faithful unescape closes the commit-DAG). Run over the committed
   seed-capital-flow-graph.kotoba.edn via the already-ported weave + edn reader."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [shionome.methods.kotoba :as kotoba]
             [shionome.methods.weave :as weave]
             [shionome.methods.edn :as edn]))

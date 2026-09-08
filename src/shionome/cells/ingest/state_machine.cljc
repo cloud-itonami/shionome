@@ -4,7 +4,7 @@
   each record is SCREENED against the closed structural vocab: G1 bucket scope ∈ public capital
   buckets (no person/account/portfolio); G2 flow kind is a factual observation (no trade token,
   トレードはしない); G3 ≥2 public-source citations. Clean batch RECORDED (counts only); any violation REFUSES."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def bucket-scopes #{"asset-class" "sector" "region" "theme"})
 (def flow-kinds #{"rotation" "fund-inflow" "fund-outflow" "price-move" "cross-correlation" "volume-shift" "yield-shift" "fx-flow"})
@@ -13,9 +13,9 @@
 
 (def state-defaults {"phase" "init" "buckets" [] "flows" [] "snapshots" [] "recorded" 0 "refusal" ""})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
-(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 (defn- trade-token [text]
-  (let [blob (str/lower-case (str (or text "")))]
+  (let [blob (str/lower (str (or text "")))]
     (some #(when (str/includes? blob %) %) trade-tokens)))
 
 (defn transition-to-screened [state]

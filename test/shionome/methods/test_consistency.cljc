@@ -2,7 +2,7 @@
   "Cross-language oracle tests for 潮目 seed ↔ manifest cross-consistency.
   1:1 port of src/shionome/methods/test_consistency.cljc. ADR-2606072200."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [cheshire.core :as json]
             [shionome.methods.edn :as edn]
             [shionome.methods.weave :as weave]))
@@ -36,7 +36,7 @@
 (deftest manifest-declares-no-trade-gate
   (let [blob (json/generate-string (manifest))]
     (is (or (str/includes? blob "トレードはしない")
-            (str/includes? (str/lower-case blob) "no-trade")))))
+            (str/includes? (str/lower blob) "no-trade")))))
 
 (deftest manifest-status-r0
   (is (str/starts-with? (get (manifest) "status") "R0")))
