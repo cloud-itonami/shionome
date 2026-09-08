@@ -8,7 +8,7 @@
   through the already-ported weave/concentration, so any divergence in the export
   shaping fails here."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [shionome.methods.export :as export]
             [shionome.methods.weave :as weave]
             [shionome.methods.edn :as edn]
@@ -56,6 +56,6 @@
 #?(:clj
    (deftest render-payload-has-no-per-bucket-score
      (testing "G4 — the render payload never exposes a per-bucket rating/signal/score"
-       (let [s (str/lower-case (export/render-json (weave/concentration (g))))]
+       (let [s (str/lower (export/render-json (weave/concentration (g))))]
          (doseq [forbidden ["\"rating\"" "\"signal\"" "\"target_price\"" "\"recommendation\""]]
-           (is (not (clojure.string/includes? s forbidden))))))))
+           (is (not (str/includes? s forbidden))))))))

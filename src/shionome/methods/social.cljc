@@ -15,7 +15,7 @@
 
   Stdlib only. Deterministic. Float formatting via fmt1/fmt1+ (cljc-safe;
   the suite never byte-compares the rendered numbers)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [shionome.methods.weave :as weave]))
 
 (def DISCLAIMER

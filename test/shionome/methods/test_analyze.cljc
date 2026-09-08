@@ -4,7 +4,7 @@
   Since the Clojure `run` is pure over a parsed graph (I/O at the #?(:clj) -main edge), the report
   is exercised via `report-md` / `render-json` rather than a temp-dir write — same bytes."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [shionome.methods.analyze :as a]
             #?(:clj [shionome.methods.edn :as e])))
 

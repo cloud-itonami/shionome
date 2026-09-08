@@ -3,7 +3,7 @@
   (ADR-2606072200), for the 4 string-keyed cells (ingest/flow_graph/rotation_weave/social_post) +
   the all-cells solve-raise. regime_observer unit tests live in regime_observer/test_state_machine.cljc."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [shionome.cells.ingest.state-machine :as ing]
             [shionome.cells.flow-graph.state-machine :as fg]
             [shionome.cells.rotation-weave.state-machine :as rw]

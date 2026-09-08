@@ -11,7 +11,7 @@
     - Python \":…\" string identities stay strings (regime labels, risk tags)
     - RegimePhase enum value identities (\"init\"/\"observed\") stay strings
     - transitions are pure fns; closed-vocab violations → ex-info"
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── RegimePhase (enum — Python value identities preserved) ────────
 

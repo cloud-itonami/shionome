@@ -11,7 +11,7 @@
   strings are decoded the way Python's `json.loads` does (\\n / \\t / \\uXXXX), not
   just \\\" / \\\\. shionome serializes strings with `json.dumps` (kotoba.py), so a
   lossy unescape would diverge the content-addressed-log CID across runtimes."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing]]
             [shionome.methods.edn :as edn]))
 
 ;; ── primitive / atom-level parsing (mirror of Python _atom) ───────────────────
@@ -57,7 +57,7 @@
       (is (= "line1\nline2\ttab\"q\"" (first v)))
       ;; explicitly: a real newline char is present, no literal backslash-n
       (is (= 1 (count (filter #(= \newline %) (first v)))))
-      (is (not (clojure.string/includes? (first v) "\\n")))))
+      (is (not (kotoba.lang.text/includes? (first v) "\\n")))))
   (testing "\\uXXXX decodes — oracle: [\"café\"]"
     (is (= ["café"] (edn/parse-edn "[\"caf\\u00e9\"]"))))
   (testing "\\\\ and \\\" still round-trip"

@@ -2,13 +2,13 @@
   "Phase state machine for the 潮目 shionome rotation_weave cell.
   1:1 port of src/shionome/cells/rotation_weave/state_machine.cljc (ADR-2606072200). Ranks bucket→bucket rotation
   pairs (capital-movement kinds) by magnitude. Aggregate, edge-primary; no per-bucket score. Self-contained."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def capital-movement-kinds #{"rotation" "fund-inflow" "fund-outflow" "fx-flow"})
 
 (def state-defaults {"phase" "init" "flows" [] "pairs" []})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
-(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+(defn- kw [v] (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 (defn- pyround4 [x] (/ (Math/round (* (double x) 10000.0)) 10000.0))
 
 (defn transition-to-woven [state]

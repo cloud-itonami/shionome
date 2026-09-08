@@ -2,7 +2,7 @@
   "Phase state machine for the 潮目 shionome social_post cell.
   1:1 port of src/shionome/cells/social_post/state_machine.cljc (ADR-2606072200). Drafts a DRY-RUN post and REFUSES
   if the body carries a trade/advisory token (G2 トレードはしない) or <2 sources (G3); status dry-run only (G8)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def trade-tokens ["buy" "sell" "long" "short" "overweight" "underweight" "recommend"
                    "target price" "target-price" "推奨" "買い" "売り" "目標株価" "空売り"])
@@ -10,7 +10,7 @@
 (def state-defaults {"phase" "init" "body" "" "sources" [] "status" "" "refusal" ""})
 (defn- cell-state [state] (merge state-defaults (get state "cell_state" {})))
 (defn- trade-token [text]
-  (let [blob (str/lower-case (str (or text "")))]
+  (let [blob (str/lower (str (or text "")))]
     (some #(when (str/includes? blob %) %) trade-tokens)))
 
 (defn transition-to-drafted [state]

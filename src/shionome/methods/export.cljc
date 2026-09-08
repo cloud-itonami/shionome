@@ -18,7 +18,7 @@
   faithful for the oracle — the ordered-map values concentration returns are plain
   maps (insertion-order tracked via metadata) and serialize transparently."
   (:require [shionome.methods.weave :as weave]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [cheshire.core :as json])))
 
 (defn- kw*
@@ -27,7 +27,7 @@
   behavior, not the symbol, is what the cross-language oracle pins)."
   [v]
   (let [s (-> (str (or v "")) (str/replace #"^:+" ""))]
-    (-> (last (str/split s #"/" -1)) (str/lower-case))))
+    (-> (last (str/split s #"/" -1)) (str/lower))))
 
 (defn to-kanae-flow
   "One shionome capital-movement :flow → one kanae fundFlowEdge. Raises if the kind
