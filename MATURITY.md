@@ -25,7 +25,7 @@
   debt 140 / broad-money 121 / equities 115 / gold 16 / cash 8 / crypto 3). A SIZE is a factual
   observed quantity carrying `no_trade_notice=true` — never a per-asset rating/signal/target
   (G2/G4 untouched); stock (usd-tn) is never summed with flow magnitudes (usd-bn).
-- **Entity grounding (`src/shionome/methods/grounding.cljc`)** — answers *who is inside each layer?* by
+- **Entity grounding (`src/shionome/methods/grounding.kotoba`)** — answers *who is inside each layer?* by
   decomposing a pyramid layer into the NAMED real entities sibling actors already mirror, and
   reporting the coverage gap HONESTLY. On the checked-out seeds: the **equities** layer is grounded
   by kabuto's **1,719** listed companies — value coverage **$46.8tn / $115tn ≈ 40.7%** (a stated
@@ -107,5 +107,5 @@ operator gate-flip (G7/G8 — Council Lv6+ + operator + member signature):
    cells fire the analyze→dry-run cycle, while live market-data ingest + live external posting stay
    G8-gated).
 
-The append-only Python autonomous loop (`src/shionome/methods/autorun.cljc`) remains the off-fleet self-driving
+The append-only Python autonomous loop (`src/shionome/methods/autorun.kotoba`) remains the off-fleet self-driving
 demonstrator over a local kotoba Datom-log file; the fleet cron cells are its production form.

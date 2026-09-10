@@ -33,7 +33,7 @@ ingest ─▶ flow_graph ─▶ rotation_weave ─▶ regime_observer ─▶ soc
  data)                    by-class/region)                        body scan, ≥2 sources)
 ```
 
-`src/shionome/methods/weave.cljc` is the heart: it validates every bucket/flow/snapshot against the closed vocab,
+`src/shionome/methods/weave.kotoba` is the heart: it validates every bucket/flow/snapshot against the closed vocab,
 builds the graph, and computes aggregate **edge-primary** metrics — net flow per bucket (where
 money is going/leaving), rotation pairs (どこからどこへ), per-bucket inflow HHI, by-asset-class /
 by-region slices, a FACTUAL cross-asset regime descriptor, and the **stock pyramid** (`stock_pyramid`
@@ -48,7 +48,7 @@ SIZE is a factual observed quantity (like `:return-pct`) carrying `no_trade_noti
 rating/signal/target (G2/G4 untouched). Stock (usd-tn) is **never** summed with flow magnitudes
 (usd-bn): two distinct on-read views over the same append-only graph.
 
-`src/shionome/methods/grounding.cljc` is an OPTIONAL **entity-grounding bridge** answering *who is inside each
+`src/shionome/methods/grounding.kotoba` is an OPTIONAL **entity-grounding bridge** answering *who is inside each
 layer?* — it decomposes a pyramid layer into the named real entities sibling actors already mirror
 (equities ← kabuto listed-company ledger, with disclosure DEPTH ← kanjō; a systemic-institutions
 overlay ← hokorobi) and reports the coverage gap honestly (value coverage as a stated lower bound, a
@@ -60,9 +60,9 @@ sibling ledger → that layer is reported ungrounded, never a crash); the **core
 (`weave`/`concentration`) must NOT import it** (no sibling-file coupling in the hermetic core);
 its figures are sizes/counts/fractions only — never a per-entity rating/signal/target (G2/G4).
 
-`src/shionome/methods/autorun.cljc` is the **autonomous heartbeat**: each cycle it runs the whole pipeline by
+`src/shionome/methods/autorun.kotoba` is the **autonomous heartbeat**: each cycle it runs the whole pipeline by
 itself and persists a content-addressed transaction to the append-only kotoba Datom log
-(`src/shionome/methods/kotoba.cljc`). That is "kotoba で自律的に稼働" in the charter-permitted form — live external
+(`src/shionome/methods/kotoba.kotoba`). That is "kotoba で自律的に稼働" in the charter-permitted form — live external
 posting/ingest stays G8-gated (one human gate-flip away).
 
 ## The 11 gates — do NOT weaken

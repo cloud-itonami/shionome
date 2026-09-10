@@ -45,7 +45,7 @@ signal, no price target, no over/under-weight call, no portfolio instruction. Ev
 ## Substrate
 
 State is the **kotoba Datom log** (append-only, content-addressed EAVT — ADR-2605312345). The
-autonomous heartbeat (`src/shionome/methods/autorun.cljc`) persists each observation cycle as a content-addressed
+autonomous heartbeat (`src/shionome/methods/autorun.kotoba`) persists each observation cycle as a content-addressed
 transaction linked into a verifiable commit-DAG. Inference/narration is Murakumo-only
 (ADR-2605215000). No RisingWave / SQL.
 
