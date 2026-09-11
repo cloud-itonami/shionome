@@ -131,7 +131,7 @@ publication under 1 SBT = 1 vote).
 ./run_tests.sh                          # all 15 suites (182 tests)
 cd methods && python3 weave.py          # concentration + stock pyramid over the :representative seed
 cd methods && python3 grounding.py      # decompose pyramid layers into named entities (kabuto/hokorobi) + coverage
-bb -m shionome.methods.analyze        # end-to-end dry-run → src/shionome/methods/out/intel-report.md
+kbb -m shionome.methods.analyze        # end-to-end dry-run → src/shionome/methods/out/intel-report.md
 cd methods && python3 social.py         # dry-run social posts
 cd methods && python3 ingest.py         # offline normalize (──live refuses without the G8 gate)
 cd methods && python3 autorun.py --cycles 3 --fresh   # AUTONOMOUS loop → kotoba Datom log

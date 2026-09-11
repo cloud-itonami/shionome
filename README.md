@@ -55,7 +55,7 @@ transaction linked into a verifiable commit-DAG. Inference/narration is Murakumo
 ./run_tests.sh                                       # 182 tests, 15 suites
 cd methods && python3 weave.py                       # concentration + stock pyramid
 cd methods && python3 grounding.py                   # who is inside each layer + coverage gap
-bb -m shionome.methods.analyze                     # dry-run intel report
+kbb -m shionome.methods.analyze                     # dry-run intel report
 cd methods && python3 autorun.py --cycles 3 --fresh  # autonomous loop over the kotoba Datom log
 ```
 

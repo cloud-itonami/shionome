@@ -19,7 +19,7 @@
             #?(:clj [cheshire.core :as json])))
 
 (def ^:private reg-path
-  "Repo-relative path to the seed registry (bb runs at the worktree root;
+  "Repo-relative path to the seed registry (kbb -M:runs at the worktree root;
   mirrors `pathlib … parents[1] / registry / sources.seed.json`)."
   "wire/registry/sources.seed.json")
 
