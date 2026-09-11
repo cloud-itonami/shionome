@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; shionome 潮目 — ie-flow embedding (the SoS scoring leg) via the shared gate-adapter.
 (ns shionome.methods.ie-flow
   "ie_flow.cljc — shionome 潮目 embeds the information-energy flow lifecycle

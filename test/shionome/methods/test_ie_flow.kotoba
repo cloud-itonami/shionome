@@ -1,6 +1,6 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; shionome 潮目 — ie-flow embedding tests (the SoS scoring leg).
-;; Run:  bb -cp ".:70-tools/src:./kotodama/src" src/shionome/methods/test_ie_flow.cljc
+;; Run:  kbb -cp ".:70-tools/src:./kotodama/src" src/shionome/methods/test_ie_flow.cljc
 (ns shionome.methods.test-ie-flow
   (:require [shionome.methods.edn :as e]
             [shionome.methods.weave :as w]
