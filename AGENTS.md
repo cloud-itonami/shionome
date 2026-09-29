@@ -2,7 +2,7 @@
 
 **DID**: `did:web:etzhayyim.com:actor:shionome` · **Tier**: B · **Status**: R0 · **ADR**: 2606072200
 
-**Read the root `/CLAUDE.md` Charter + substrate rules first.** shionome-specific invariants below
+**Read the root `/AGENTS.md` Charter + substrate rules first.** shionome-specific invariants below
 OVERRIDE nothing in the Charter; they make it concrete for this actor.
 
 ## The one-sentence identity
